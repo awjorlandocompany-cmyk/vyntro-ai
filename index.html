@@ -2,433 +2,283 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VYNTRO AI — Da ideia ao negócio</title>
-  <meta name="description" content="VYNTRO AI — Inteligência de mercado para descobrir oportunidades e criar negócios.">
-  <style>
-    :root {
-      --bg: #101827;
-      --panel: #172235;
-      --panel2: #1d2a40;
-      --green: #c8f169;
-      --text: #f5f5f0;
-      --muted: #a5b0c0;
-      --border: rgba(255,255,255,.1);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    header {
-      padding: 24px 7%;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: 2px;
-    }
-
-    .logo span { color: var(--green); }
-
-    .status {
-      color: var(--green);
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
-
-    main {
-      width: min(1050px, 90%);
-      margin: 55px auto;
-    }
-
-    .hero { margin-bottom: 35px; }
-
-    .eyebrow {
-      color: var(--green);
-      font-size: 12px;
-      letter-spacing: 2px;
-      font-weight: bold;
-    }
-
-    h1 {
-      font-size: clamp(34px, 6vw, 58px);
-      line-height: 1.05;
-      margin: 15px 0;
-    }
-
-    h1 span { color: var(--green); }
-
-    .subtitle {
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.6;
-      max-width: 650px;
-    }
-
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 26px;
-      margin: 22px 0;
-    }
-
-    h2 {
-      margin: 0 0 8px;
-      font-size: 21px;
-    }
-
-    .description {
-      color: var(--muted);
-      line-height: 1.5;
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-
-    label {
-      display: block;
-      margin: 17px 0 8px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 14px;
-      border-radius: 9px;
-      border: 1px solid var(--border);
-      background: #0f1929;
-      color: var(--text);
-      font-size: 15px;
-      outline: none;
-    }
-
-    input:focus, textarea:focus, select:focus {
-      border-color: var(--green);
-    }
-
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    button {
-      border: 0;
-      border-radius: 9px;
-      padding: 14px 19px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    button:hover { transform: translateY(-2px); }
-
-    .primary {
-      background: var(--green);
-      color: #101827;
-      margin-top: 18px;
-      width: 100%;
-    }
-
-    .secondary {
-      background: var(--panel2);
-      border: 1px solid var(--border);
-      color: var(--text);
-      width: 100%;
-      text-align: left;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .result {
-      display: none;
-      margin-top: 20px;
-      background: #0f1929;
-      border: 1px solid rgba(200,241,105,.35);
-      border-radius: 10px;
-      padding: 18px;
-      line-height: 1.6;
-    }
-
-    .result strong { color: var(--green); }
-
-    .search-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .note {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.6;
-      margin-top: 18px;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--muted);
-      padding: 28px 15px;
-      font-size: 12px;
-      margin-top: 60px;
-    }
-
-    @media(max-width: 650px) {
-      main { margin-top: 35px; }
-      .grid, .search-list { grid-template-columns: 1fr; }
-      .panel { padding: 19px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VYNTRO AI | Da ideia ao negócio</title>
+<style>
+:root {
+  --bg:#101827; --panel:#182437; --panel2:#202f45;
+  --green:#c8f169; --white:#f5f5f0; --muted:#9aa9ba;
+  --line:#304057;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--white);
+font-family:Arial,sans-serif}
+header{padding:24px 5%;border-bottom:1px solid var(--line);
+display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.logo{font-size:25px;font-weight:900;letter-spacing:2px}
+.logo span{color:var(--green)}
+.tag{font-size:11px;color:var(--green);letter-spacing:2px}
+.container{max-width:1200px;margin:auto;padding:30px 5%}
+h1{font-size:clamp(27px,5vw,42px);margin:5px 0 10px}
+h1 span{color:var(--green)}
+.subtitle{color:var(--muted);line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:17px;margin:25px 0}
+.card{background:var(--panel);border:1px solid var(--line);
+border-radius:14px;padding:22px}
+.card h2{font-size:18px;margin:0 0 10px}
+.card p{font-size:13px;color:var(--muted);line-height:1.5}
+.number{font-size:25px;color:var(--green);font-weight:bold}
+label{display:block;font-size:12px;color:var(--muted);margin:14px 0 7px}
+input,select,textarea{width:100%;padding:13px;border-radius:8px;
+border:1px solid var(--line);background:#101b2b;color:white;font-size:14px}
+textarea{min-height:90px;resize:vertical}
+button{background:var(--green);color:#142016;border:0;border-radius:8px;
+padding:12px 16px;font-weight:bold;cursor:pointer;margin-top:13px}
+button:hover{opacity:.88}
+.secondary{background:var(--panel2);color:var(--white);border:1px solid var(--line)}
+.result{background:#101b2b;border:1px solid var(--line);
+border-radius:10px;padding:15px;margin-top:15px;line-height:1.6;font-size:13px}
+.result strong{color:var(--green)}
+.small{font-size:11px;color:var(--muted)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:25px 0}
+.tabs button{margin:0}
+section{scroll-margin-top:20px}
+hr{border:0;border-top:1px solid var(--line);margin:25px 0}
+footer{text-align:center;padding:30px;color:var(--muted);font-size:12px}
+</style>
 </head>
-
 <body>
-  <header>
+
+<header>
+  <div>
     <div class="logo">VYNTRO<span> AI</span></div>
-    <div class="status">● MARKET INTELLIGENCE</div>
-  </header>
+    <div class="tag">INTELLIGENCE THAT CREATES GROWTH</div>
+  </div>
+  <div class="small">PAINEL DE INTELIGÊNCIA COMERCIAL</div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="eyebrow">INTELLIGENCE THAT CREATES GROWTH</div>
-      <h1>Da ideia <span>ao negócio.</span></h1>
-      <p class="subtitle">
-        Descubra necessidades do mercado, investigue oportunidades
-        e encontre sinais de demanda antes de construir sua oferta.
-      </p>
-    </section>
+<main class="container">
+  <p class="tag">DA IDEIA AO NEGÓCIO</p>
+  <h1>Encontre oportunidades.<br><span>Construa negócios.</span></h1>
+  <p class="subtitle">Uma central para investigar mercados, compreender consumidores,
+  planejar conteúdo e acompanhar resultados comerciais.</p>
 
-    <section class="panel">
-      <h2>01 — Analisador de oportunidades</h2>
-      <p class="description">
-        Descreva um produto, serviço ou problema que deseja investigar.
-        O VYNTRO fará uma triagem inicial para organizar sua pesquisa.
-      </p>
+  <div class="grid">
+    <div class="card">
+      <div class="number">01</div>
+      <h2>Radar de Mercado</h2>
+      <p>Investigue produtos, demanda, concorrentes, preços e necessidades.</p>
+      <button onclick="ir('mercado')">Abrir radar</button>
+    </div>
+    <div class="card">
+      <div class="number">02</div>
+      <h2>Comportamento</h2>
+      <p>Organize desejos, necessidades, motivações e sinais de compra.</p>
+      <button onclick="ir('comportamento')">Investigar público</button>
+    </div>
+    <div class="card">
+      <div class="number">03</div>
+      <h2>Conteúdo e Tráfego</h2>
+      <p>Planeje ideias de vídeos e pesquisas para canais digitais.</p>
+      <button onclick="ir('conteudo')">Criar conteúdo</button>
+    </div>
+    <div class="card">
+      <div class="number">04</div>
+      <h2>Máquina de Vendas</h2>
+      <p>Calcule margens e acompanhe visitas, contatos e vendas.</p>
+      <button onclick="ir('vendas')">Abrir painel</button>
+    </div>
+  </div>
 
-      <label for="idea">O que deseja investigar?</label>
-      <textarea id="idea" placeholder="Ex.: pessoas procurando profissionais para pequenos reparos residenciais..."></textarea>
+  <section id="mercado" class="card">
+    <p class="tag">MÓDULO 01</p>
+    <h2>Radar de Mercado</h2>
+    <p>Informe o que deseja investigar. O VYNTRO prepara pesquisas para você conferir nas fontes públicas.</p>
+    <label>Produto ou serviço</label>
+    <input id="produto" placeholder="Ex.: mega hair, cílios, acessórios femininos">
+    <label>Público que deseja investigar</label>
+    <input id="publico" placeholder="Ex.: mulheres que procuram transformação capilar">
+    <label>Cidade ou região</label>
+    <input id="regiao" placeholder="Ex.: São Paulo, Brasil">
+    <label>O que deseja descobrir?</label>
+    <select id="tipo">
+      <option value="demanda">Demanda e procura</option>
+      <option value="problemas">Problemas e reclamações</option>
+      <option value="precos">Preços praticados</option>
+      <option value="concorrentes">Concorrentes e lojas</option>
+      <option value="fornecedores">Fabricantes e fornecedores</option>
+      <option value="tendencias">Tendências e novidades</option>
+    </select>
+    <button onclick="pesquisarMercado()">Preparar pesquisa</button>
+    <div id="resultadoMercado" class="result">Sua investigação aparecerá aqui.</div>
+  </section>
 
-      <label for="location">Cidade ou região</label>
-      <input id="location" type="text" placeholder="Ex.: São Bernardo do Campo - SP">
+  <section id="comportamento" class="card" style="margin-top:20px">
+    <p class="tag">MÓDULO 02</p>
+    <h2>Comportamento do Consumidor</h2>
+    <p>Registre hipóteses sobre o público. São pontos de investigação, não conclusões sobre todas as pessoas.</p>
+    <label>Qual público deseja entender?</label>
+    <input id="publicoComportamento" placeholder="Ex.: pessoas interessadas em beleza">
+    <label>Qual motivação deseja investigar?</label>
+    <select id="motivacao">
+      <option>Reconhecimento e autoestima</option>
+      <option>Praticidade e economia de tempo</option>
+      <option>Beleza e transformação</option>
+      <option>Pertencimento e identidade</option>
+      <option>Segurança e confiança</option>
+      <option>Aprendizado e desenvolvimento</option>
+      <option>Resolver um problema específico</option>
+    </select>
+    <button onclick="investigarComportamento()">Montar roteiro de investigação</button>
+    <div id="resultadoComportamento" class="result">O roteiro será montado aqui.</div>
+  </section>
 
-      <button class="primary" onclick="analisar()">ANALISAR OPORTUNIDADE</button>
+  <section id="conteudo" class="card" style="margin-top:20px">
+    <p class="tag">MÓDULO 03</p>
+    <h2>Conteúdo e Tráfego</h2>
+    <p>Transforme um produto em ideias de conteúdo original para testar com seu público.</p>
+    <label>Produto ou tema</label>
+    <input id="temaConteudo" placeholder="Ex.: cabelo humano, mega hair">
+    <label>Canal de publicação</label>
+    <select id="canal">
+      <option>TikTok</option>
+      <option>Instagram</option>
+      <option>Facebook</option>
+      <option>YouTube</option>
+      <option>Pinterest</option>
+    </select>
+    <button onclick="gerarConteudo()">Gerar ideias</button>
+    <div id="resultadoConteudo" class="result">As ideias aparecerão aqui.</div>
+    <hr>
+    <strong>Pesquisar tendências e referências públicas</strong>
+    <div class="grid">
+      <button class="secondary" onclick="abrirBusca('TikTok')">Pesquisar TikTok</button>
+      <button class="secondary" onclick="abrirBusca('YouTube')">Pesquisar YouTube</button>
+      <button class="secondary" onclick="abrirBusca('Pinterest')">Pesquisar Pinterest</button>
+      <button class="secondary" onclick="abrirBusca('Google')">Pesquisar Google</button>
+    </div>
+  </section>
 
-      <div class="result" id="analysisResult"></div>
-    </section>
-
-    <section class="panel">
-      <h2>02 — Radar de oportunidades</h2>
-      <p class="description">
-        Investigue o que as pessoas procuram, o que os concorrentes oferecem
-        e quais problemas aparecem nas conversas públicas.
-      </p>
-
-      <label for="radarTopic">Produto ou serviço</label>
-      <input id="radarTopic" type="text" placeholder="Ex.: pequenos reparos residenciais">
-
-      <label for="radarLocation">Localização</label>
-      <input id="radarLocation" type="text" placeholder="Ex.: São Bernardo do Campo - SP">
-
-      <label for="researchType">O que deseja descobrir?</label>
-      <select id="researchType">
-        <option value="demanda">Demanda — pessoas procurando</option>
-        <option value="oferta">Oferta — empresas e profissionais</option>
-        <option value="reclamacoes">Reclamações e problemas</option>
-        <option value="precos">Preços praticados</option>
-        <option value="concorrentes">Concorrentes e serviços</option>
-      </select>
-
-      <label for="source">Onde pesquisar?</label>
-      <select id="source">
-        <option value="web">Pesquisa geral na internet</option>
-        <option value="facebook.com">Páginas públicas do Facebook</option>
-        <option value="youtube.com">YouTube</option>
-        <option value="news.google.com">Notícias</option>
-      </select>
-
-      <button class="primary" onclick="pesquisarRadar()">INICIAR PESQUISA</button>
-
-      <div id="radarResults" class="result"></div>
-      <div id="searchButtons" class="search-list"></div>
-
-      <p class="note">
-        As pesquisas abrem fontes públicas em novas abas. Analise os resultados
-        e confirme se existe demanda real antes de oferecer qualquer serviço.
-        O radar ainda não coleta, armazena ou valida contatos automaticamente.
-      </p>
-    </section>
-
-    <section class="panel">
-      <h2>03 — Método VYNTRO</h2>
-      <div class="grid">
-        <div>
-          <strong style="color:var(--green)">01. Encontrar</strong>
-          <p class="description">Identificar necessidades e sinais de procura.</p>
-        </div>
-        <div>
-          <strong style="color:var(--green)">02. Investigar</strong>
-          <p class="description">Entender concorrentes, preços e reclamações.</p>
-        </div>
-        <div>
-          <strong style="color:var(--green)">03. Conectar</strong>
-          <p class="description">Aproximar quem precisa de quem pode resolver.</p>
-        </div>
-        <div>
-          <strong style="color:var(--green)">04. Desenvolver</strong>
-          <p class="description">Testar a oferta e melhorar o modelo de negócio.</p>
-        </div>
+  <section id="vendas" class="card" style="margin-top:20px">
+    <p class="tag">MÓDULO 04</p>
+    <h2>Máquina de Vendas</h2>
+    <p>Calcule uma margem estimada e acompanhe os números do seu negócio.</p>
+    <div class="grid">
+      <div>
+        <label>Custo do produto (R$)</label>
+        <input id="custo" type="number" min="0" step="0.01" placeholder="100">
       </div>
-    </section>
-  </main>
+      <div>
+        <label>Preço de venda (R$)</label>
+        <input id="preco" type="number" min="0" step="0.01" placeholder="179">
+      </div>
+      <div>
+        <label>Outros custos por venda (R$)</label>
+        <input id="taxas" type="number" min="0" step="0.01" placeholder="15">
+      </div>
+    </div>
+    <button onclick="calcularMargem()">Calcular margem estimada</button>
+    <div id="resultadoMargem" class="result">Informe os valores para calcular.</div>
+    <hr>
+    <h2>Indicadores comerciais</h2>
+    <div class="grid">
+      <div><label>Visualizações</label><input id="views" type="number" min="0" placeholder="1000"></div>
+      <div><label>Cliques no link</label><input id="cliques" type="number" min="0" placeholder="100"></div>
+      <div><label>Contatos recebidos</label><input id="contatos" type="number" min="0" placeholder="30"></div>
+      <div><label>Vendas confirmadas</label><input id="vendas" type="number" min="0" placeholder="5"></div>
+    </div>
+    <button onclick="calcularIndicadores()">Atualizar indicadores</button>
+    <div id="resultadoIndicadores" class="result">Seus indicadores aparecerão aqui.</div>
+  </section>
+</main>
 
-  <footer>
-    VYNTRO AI © 2026 — Da ideia ao negócio.
-  </footer>
+<footer>
+  VYNTRO AI · DA IDEIA AO NEGÓCIO<br>
+  <span class="small">Protótipo inicial. Pesquisas externas precisam ser verificadas.
+  Resultados comerciais não são garantidos.</span>
+</footer>
 
-  <script>
-    function analisar() {
-      const idea = document.getElementById("idea").value.trim();
-      const location = document.getElementById("location").value.trim();
-      const result = document.getElementById("analysisResult");
-
-      if (!idea) {
-        alert("Descreva primeiro o que deseja investigar.");
-        return;
-      }
-
-      const words = idea.toLowerCase();
-      let category = "Oportunidade a investigar";
-      let nextStep = "Pesquise quem já oferece essa solução e quais problemas os consumidores relatam.";
-
-      if (words.includes("reparo") || words.includes("conserto") || words.includes("manutenção")) {
-        category = "Serviços e manutenção";
-        nextStep = "Investigue a procura local, os preços e as reclamações sobre profissionais.";
-      } else if (words.includes("curso") || words.includes("aprender") || words.includes("aula")) {
-        category = "Educação e conhecimento";
-        nextStep = "Investigue quais habilidades as pessoas querem aprender e quanto pagam por isso.";
-      } else if (words.includes("comida") || words.includes("alimento") || words.includes("restaurante")) {
-        category = "Alimentação";
-        nextStep = "Investigue procura, frequência de compra, entrega e concorrentes da região.";
-      } else if (words.includes("beleza") || words.includes("cabelo") || words.includes("estética")) {
-        category = "Beleza e cuidados pessoais";
-        nextStep = "Investigue serviços procurados, preços e avaliações de clientes.";
-      }
-
-      result.innerHTML = `
-        <strong>Triagem inicial concluída</strong><br><br>
-        <strong>Área identificada:</strong> ${escapeHTML(category)}<br>
-        <strong>Local:</strong> ${escapeHTML(location || "Não informado")}<br><br>
-        <strong>Próximo passo recomendado:</strong><br>
-        ${escapeHTML(nextStep)}<br><br>
-        <em>Esta é uma classificação inicial baseada nas palavras informadas,
-        não uma validação de mercado.</em>
-      `;
-      result.style.display = "block";
-
-      document.getElementById("radarTopic").value = idea;
-      if (location) document.getElementById("radarLocation").value = location;
-    }
-
-    function pesquisarRadar() {
-      const topic = document.getElementById("radarTopic").value.trim();
-      const location = document.getElementById("radarLocation").value.trim();
-      const type = document.getElementById("researchType").value;
-      const source = document.getElementById("source").value;
-
-      if (!topic) {
-        alert("Informe o produto ou serviço que deseja pesquisar.");
-        return;
-      }
-
-      const terms = {
-        demanda: [
-          `"${topic}" procurando`,
-          `"${topic}" preciso de`,
-          `"${topic}" contratar`
-        ],
-        oferta: [
-          `"${topic}" profissionais`,
-          `"${topic}" empresas`,
-          `"${topic}" serviços`
-        ],
-        reclamacoes: [
-          `"${topic}" reclamação`,
-          `"${topic}" problemas`,
-          `"${topic}" não recomendo`
-        ],
-        precos: [
-          `"${topic}" preço`,
-          `"${topic}" orçamento`,
-          `"${topic}" quanto custa`
-        ],
-        concorrentes: [
-          `"${topic}" empresas`,
-          `"${topic}" concorrentes`,
-          `"${topic}" melhores serviços`
-        ]
-      };
-
-      const queries = terms[type].map(term =>
-        `${term} ${location}`.trim()
-      );
-
-      const result = document.getElementById("radarResults");
-      const buttons = document.getElementById("searchButtons");
-
-      result.innerHTML = `
-        <strong>Pesquisa preparada</strong><br>
-        Tema: ${escapeHTML(topic)}<br>
-        Região: ${escapeHTML(location || "Não informada")}<br>
-        Tipo: ${escapeHTML(type)}<br><br>
-        Selecione uma pesquisa abaixo para abrir os resultados.
-      `;
-      result.style.display = "block";
-      buttons.innerHTML = "";
-
-      queries.forEach((query, index) => {
-        const button = document.createElement("button");
-        button.className = "secondary";
-        button.textContent = `ABRIR PESQUISA ${index + 1}`;
-        button.onclick = () => {
-          const url = source === "web"
-            ? "https://www.google.com/search?q=" + encodeURIComponent(query)
-            : "https://www.google.com/search?q=" +
-              encodeURIComponent(query + " site:" + source);
-          window.open(url, "_blank", "noopener,noreferrer");
-        };
-        buttons.appendChild(button);
-      });
-    }
-
-    function escapeHTML(value) {
-      return String(value).replace(/[&<>"']/g, char => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-      })[char]);
-    }
-  </script>
+<script>
+function ir(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+function valor(id){
+  return document.getElementById(id).value.trim();
+}
+function pesquisarMercado(){
+  const p=valor("produto"), pub=valor("publico"), r=valor("regiao");
+  const tipo=valor("tipo");
+  if(!p){alert("Digite um produto ou serviço.");return;}
+  const termos={
+    demanda:`"${p}" procura demanda comprar`,
+    problemas:`"${p}" reclamações problemas dificuldades`,
+    precos:`"${p}" preço valor comprar`,
+    concorrentes:`lojas empresas concorrentes "${p}"`,
+    fornecedores:`fabricante atacado fornecedor "${p}"`,
+    tendencias:`tendências novidades "${p}"`
+  };
+  const q=[termos[tipo],pub,r].filter(Boolean).join(" ");
+  document.getElementById("resultadoMercado").innerHTML=
+    "<strong>Pesquisa preparada:</strong><br>"+q+
+    "<br><br>Confira os resultados, compare fontes e registre evidências. Uma busca isolada não comprova demanda.";
+  window.open("https://www.google.com/search?q="+encodeURIComponent(q),"_blank");
+}
+function investigarComportamento(){
+  const p=valor("publicoComportamento"), m=valor("motivacao");
+  if(!p){alert("Informe o público.");return;}
+  const q=`"${p}" o que procuram desejos dificuldades opiniões ${m}`;
+  document.getElementById("resultadoComportamento").innerHTML=
+    "<strong>Hipótese para investigar:</strong><br>Como "+p+
+    " expressa a motivação: "+m+
+    "?<br><br><strong>Observe:</strong> palavras usadas, dúvidas frequentes, reclamações, alternativas e sinais concretos de intenção de compra.";
+  window.open("https://www.google.com/search?q="+encodeURIComponent(q),"_blank");
+}
+function gerarConteudo(){
+  const t=valor("temaConteudo"), c=valor("canal");
+  if(!t){alert("Digite um tema.");return;}
+  const ideias=[
+    "Mostre três dúvidas frequentes sobre "+t+".",
+    "Explique como escolher "+t+" e o que observar.",
+    "Apresente um problema comum e formas de resolvê-lo.",
+    "Faça uma comparação transparente entre opções de "+t+".",
+    "Mostre um processo ou transformação real, com autorização."
+  ];
+  document.getElementById("resultadoConteudo").innerHTML=
+    "<strong>Ideias para "+c+":</strong><br>"+ideias.map((x,i)=>(i+1)+". "+x).join("<br>")+
+    "<br><br>Crie material original e use imagens, vídeos e músicas com autorização ou licença adequada.";
+}
+function abrirBusca(canal){
+  const t=valor("temaConteudo")||valor("produto");
+  if(!t){alert("Digite um produto ou tema primeiro.");return;}
+  const url={
+    TikTok:"https://www.tiktok.com/search?q=",
+    YouTube:"https://www.youtube.com/results?search_query=",
+    Pinterest:"https://www.pinterest.com/search/pins/?q=",
+    Google:"https://www.google.com/search?q="
+  };
+  window.open(url[canal]+encodeURIComponent(t)," _blank");
+}
+function calcularMargem(){
+  const c=Number(valor("custo")),p=Number(valor("preco")),t=Number(valor("taxas")||0);
+  if(!valor("custo")||!valor("preco")||p<=0){alert("Informe custo e preço válidos.");return;}
+  const lucro=p-c-t, margem=(lucro/p)*100;
+  document.getElementById("resultadoMargem").innerHTML=
+    "<strong>Resultado estimado</strong><br>Lucro por unidade: R$ "+lucro.toFixed(2)+
+    "<br>Margem sobre a venda: "+margem.toFixed(1)+"%"+
+    "<br><span class='small'>Não inclui custos que você não informou, impostos ou despesas adicionais.</span>";
+}
+function calcularIndicadores(){
+  const v=Number(valor("views")),c=Number(valor("cliques")),
+  ct=Number(valor("contatos")),vd=Number(valor("vendas"));
+  const taxaClique=v?c/v*100:0, conversao=c?vd/c*100:0;
+  document.getElementById("resultadoIndicadores").innerHTML=
+    "<strong>Resumo dos números</strong><br>Taxa de cliques: "+taxaClique.toFixed(2)+"%"+
+    "<br>Vendas por clique: "+conversao.toFixed(2)+"%"+
+    "<br>Contatos registrados: "+ct+
+    "<br>Vendas registradas: "+vd+
+    "<br><span class='small'>Use vendas efetivamente confirmadas, não apenas pedidos iniciados.</span>";
+}
+</script>
 </body>
 </html>
