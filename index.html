@@ -288,16 +288,21 @@ function pesquisarCompradores() {
     return;
   }
 
-  let pesquisa = carro + " à venda comprador interessado " + cidade;
+  const regiao = cidade + " São Paulo Grande ABC";
+  const limite = preco ? " até R$ " + preco : "";
 
-  if (preco) {
-    pesquisa += " até R$ " + preco;
-  }
+  const pesquisas = [
+    carro + " quero comprar procuro comprador " + regiao,
+    carro + " à venda " + regiao + limite,
+    carro + " preço FIPE valor mercado " + regiao
+  ];
 
-  const url = "https://www.google.com/search?q=" +
-    encodeURIComponent(pesquisa);
+  pesquisas.forEach((termo) => {
+    const url = "https://www.google.com/search?q=" +
+      encodeURIComponent(termo);
 
-  window.open(url, "_blank", "noopener,noreferrer");
+    window.open(url, "_blank", "noopener,noreferrer");
+  });
 }
 </script>
 
