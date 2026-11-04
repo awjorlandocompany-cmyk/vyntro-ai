@@ -136,33 +136,39 @@ function analisar() {
 
   const texto = idea.toLowerCase();
 
-  const segmentos = [
-    {
-      nome: "Mercado e oportunidade",
-      termos: ["plataforma", "aplicativo", "site", "negócio", "empresa", "mercado"],
-      analise: "Investigue quem já oferece essa solução, qual público está desatendido e onde existe espaço para diferenciação."
-    },
-    {
-      nome: "Conteúdo e audiência",
-      termos: ["vídeo", "tiktok", "instagram", "youtube", "viral", "conteúdo"],
-      analise: "Identifique um público específico, crie conteúdos que resolvam dúvidas reais e acompanhe alcance, retenção e conversões."
-    },
-    {
-      nome: "Vendas e monetização",
-      termos: ["vender", "vendas", "preço", "oferta", "dinheiro", "pagamento"],
-      analise: "Defina quem paga, pelo que paga, quanto pode pagar e como testar a disposição de compra."
-    },
-    {
-      nome: "Leads e aquisição",
-      termos: ["leads", "contatos", "whatsapp", "clientes", "anúncio"],
-      analise: "Desenhe um caminho para atrair pessoas interessadas, registrar contatos com consentimento e acompanhar cada oportunidade."
-    },
-    {
-      nome: "Comportamento humano",
-      termos: ["comportamento", "psicologia", "desejo", "emoção", "público"],
-      analise: "Descubra quais necessidades, dificuldades e motivações levam o público a procurar essa solução."
-    }
-  ];
+  
+const segmentos = [
+  {
+    nome: "Mercado e oportunidade",
+    termos: ["plataforma", "aplicativo", "site", "negócio", "empresa", "mercado"],
+    analise: "Investigue concorrentes, demanda, público e oportunidades de diferenciação."
+  },
+  {
+    nome: "Conteúdo e audiência",
+    termos: ["vídeo", "tiktok", "instagram", "youtube", "viral", "conteúdo"],
+    analise: "Identifique públicos, temas de interesse, formatos e formas de medir resultados."
+  },
+  {
+    nome: "Vendas e monetização",
+    termos: ["vender", "vendas", "preço", "oferta", "dinheiro", "pagamento"],
+    analise: "Avalie quem paga, pelo que paga e quais modelos de receita podem ser testados."
+  },
+  {
+    nome: "Leads e aquisição",
+    termos: ["leads", "contatos", "whatsapp", "clientes", "anúncio"],
+    analise: "Planeje a atração de interessados, a organização dos contatos e o acompanhamento das oportunidades."
+  },
+  {
+    nome: "Comportamento humano",
+    termos: ["comportamento", "psicologia", "desejo", "emoção", "público"],
+    analise: "Investigue necessidades, dificuldades e motivações do público."
+  },
+  {
+    nome: "Web Intelligence",
+    termos: ["pesquisar", "pesquisa", "internet", "concorrentes", "concorrência", "tendências", "dados", "fontes"],
+    analise: "Identifique informações que precisam ser pesquisadas na internet, fontes confiáveis, concorrentes e evidências de mercado. Esta etapa ainda não realiza buscas externas."
+  }
+];
 
   const encontrados = segmentos.filter(segmento =>
     segmento.termos.some(termo => texto.includes(termo))
