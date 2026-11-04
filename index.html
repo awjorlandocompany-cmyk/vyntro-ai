@@ -4,310 +4,431 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101827">
-  <title>VYNTRO AI — Intelligence that creates growth</title>
+  <title>VYNTRO AI — Da ideia ao negócio</title>
+  <meta name="description" content="VYNTRO AI — Inteligência de mercado para descobrir oportunidades e criar negócios.">
   <style>
+    :root {
+      --bg: #101827;
+      --panel: #172235;
+      --panel2: #1d2a40;
+      --green: #c8f169;
+      --text: #f5f5f0;
+      --muted: #a5b0c0;
+      --border: rgba(255,255,255,.1);
+    }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      background: #101827;
-      color: #f5f5f0;
-      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
     }
+
     header {
+      padding: 24px 7%;
+      border-bottom: 1px solid var(--border);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 22px 7%;
-      border-bottom: 1px solid #263448;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .symbol {
-      background: #c8f169; color: #101827;
-      font-weight: 900; font-size: 25px;
-      width: 42px; height: 42px;
-      display: grid; place-items: center;
-      border-radius: 12px;
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 2px;
     }
-    .brand-name { font-size: 21px; font-weight: 800; letter-spacing: 2px; }
-    .brand-sub { color: #c8f169; font-size: 9px; letter-spacing: 2px; }
-    .status { color: #c8f169; font-size: 12px; }
-    main { max-width: 1050px; margin: auto; padding: 75px 22px; }
-    .hero { text-align: center; margin-bottom: 45px; }
-    .eyebrow { color: #c8f169; letter-spacing: 3px; font-size: 11px; }
-    h1 { font-size: clamp(36px, 7vw, 64px); margin: 18px 0; }
-    h1 span { color: #c8f169; }
-    .hero p { color: #aab4c5; line-height: 1.7; }
-    .workspace {
-      background: #182538; border: 1px solid #34445a;
-      padding: 25px; border-radius: 20px;
+
+    .logo span { color: var(--green); }
+
+    .status {
+      color: var(--green);
+      font-size: 12px;
+      letter-spacing: 1px;
     }
-    label { display: block; margin-bottom: 12px; font-weight: 700; }
+
+    main {
+      width: min(1050px, 90%);
+      margin: 55px auto;
+    }
+
+    .hero { margin-bottom: 35px; }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.05;
+      margin: 15px 0;
+    }
+
+    h1 span { color: var(--green); }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 650px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      margin: 22px 0;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 21px;
+    }
+
+    .description {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin: 17px 0 8px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      background: #0f1929;
+      color: var(--text);
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--green);
+    }
+
     textarea {
-      width: 100%; min-height: 145px; resize: vertical;
-      background: #101827; border: 1px solid #45566e;
-      border-radius: 12px; color: white; padding: 17px;
-      font: inherit; outline: none;
+      min-height: 110px;
+      resize: vertical;
     }
-    textarea:focus { border-color: #c8f169; }
-    .modules {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 12px; margin: 20px 0;
-    }
-    .module {
-      background: #223248; padding: 17px;
-      border: 1px solid #34445a; border-radius: 12px;
-      color: #e9edf3; font-size: 14px;
-    }
-    .module strong { display: block; color: #c8f169; margin-bottom: 7px; }
+
     button {
-      width: 100%; padding: 17px; border: 0;
-      background: #c8f169; color: #101827;
-      font-weight: 800; font-size: 15px;
-      border-radius: 12px; cursor: pointer;
+      border: 0;
+      border-radius: 9px;
+      padding: 14px 19px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .2s;
     }
-    button:hover { background: #d8ff83; }
-    .note { color: #8997aa; font-size: 12px; text-align: center; margin-top: 14px; }
+
+    button:hover { transform: translateY(-2px); }
+
+    .primary {
+      background: var(--green);
+      color: #101827;
+      margin-top: 18px;
+      width: 100%;
+    }
+
+    .secondary {
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 100%;
+      text-align: left;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
     .result {
-      display: none; margin-top: 22px; padding: 20px;
-      background: #101827; border-radius: 12px;
-      border: 1px solid #c8f169; line-height: 1.7;
+      display: none;
+      margin-top: 20px;
+      background: #0f1929;
+      border: 1px solid rgba(200,241,105,.35);
+      border-radius: 10px;
+      padding: 18px;
+      line-height: 1.6;
     }
-    footer { text-align: center; color: #718096; padding: 30px; font-size: 12px; }
-    @media(max-width:650px) {
-      .modules { grid-template-columns: 1fr; }
-      header { padding: 17px 5%; }
-      main { padding-top: 50px; }
+
+    .result strong { color: var(--green); }
+
+    .search-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      margin-top: 18px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      padding: 28px 15px;
+      font-size: 12px;
+      margin-top: 60px;
+    }
+
+    @media(max-width: 650px) {
+      main { margin-top: 35px; }
+      .grid, .search-list { grid-template-columns: 1fr; }
+      .panel { padding: 19px; }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <div class="brand">
-      <div class="symbol">V</div>
-      <div>
-        <div class="brand-name">VYNTRO AI</div>
-        <div class="brand-sub">INTELLIGENCE THAT CREATES GROWTH</div>
-      </div>
-    </div>
-    <div class="status">● PLATAFORMA EM CONSTRUÇÃO</div>
+    <div class="logo">VYNTRO<span> AI</span></div>
+    <div class="status">● MARKET INTELLIGENCE</div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="eyebrow">INTELIGÊNCIA • CRIATIVIDADE • CRESCIMENTO</div>
-      <h1>Da ideia ao <span>negócio.</span></h1>
-      <p>Transforme conhecimento em estratégia.<br>
-      Descubra oportunidades, compreenda mercados e construa novas possibilidades.</p>
+      <div class="eyebrow">INTELLIGENCE THAT CREATES GROWTH</div>
+      <h1>Da ideia <span>ao negócio.</span></h1>
+      <p class="subtitle">
+        Descubra necessidades do mercado, investigue oportunidades
+        e encontre sinais de demanda antes de construir sua oferta.
+      </p>
     </section>
 
-    <section class="workspace">
-      <label for="idea">O que você deseja descobrir, criar ou transformar?</label>
-      <textarea id="idea" placeholder="Descreva sua ideia, negócio, produto ou objetivo..."></textarea>
+    <section class="panel">
+      <h2>01 — Analisador de oportunidades</h2>
+      <p class="description">
+        Descreva um produto, serviço ou problema que deseja investigar.
+        O VYNTRO fará uma triagem inicial para organizar sua pesquisa.
+      </p>
 
-      <div class="modules">
-        <div class="module"><strong>01 / MERCADO</strong>Oportunidades e tendências</div>
-        <div class="module"><strong>02 / PSICOLOGIA</strong>Comportamento e consumo</div>
-        <div class="module"><strong>03 / CONTEÚDO</strong>Vídeos, ideias e roteiros</div>
-        <div class="module"><strong>04 / LEADS</strong>Atração e conversão</div>
-        <div class="module"><strong>05 / VENDAS</strong>Ofertas e estratégias</div>
-        <div class="module"><strong>06 / CRESCIMENTO</strong>Análise e otimização</div>
+      <label for="idea">O que deseja investigar?</label>
+      <textarea id="idea" placeholder="Ex.: pessoas procurando profissionais para pequenos reparos residenciais..."></textarea>
+
+      <label for="location">Cidade ou região</label>
+      <input id="location" type="text" placeholder="Ex.: São Bernardo do Campo - SP">
+
+      <button class="primary" onclick="analisar()">ANALISAR OPORTUNIDADE</button>
+
+      <div class="result" id="analysisResult"></div>
+    </section>
+
+    <section class="panel">
+      <h2>02 — Radar de oportunidades</h2>
+      <p class="description">
+        Investigue o que as pessoas procuram, o que os concorrentes oferecem
+        e quais problemas aparecem nas conversas públicas.
+      </p>
+
+      <label for="radarTopic">Produto ou serviço</label>
+      <input id="radarTopic" type="text" placeholder="Ex.: pequenos reparos residenciais">
+
+      <label for="radarLocation">Localização</label>
+      <input id="radarLocation" type="text" placeholder="Ex.: São Bernardo do Campo - SP">
+
+      <label for="researchType">O que deseja descobrir?</label>
+      <select id="researchType">
+        <option value="demanda">Demanda — pessoas procurando</option>
+        <option value="oferta">Oferta — empresas e profissionais</option>
+        <option value="reclamacoes">Reclamações e problemas</option>
+        <option value="precos">Preços praticados</option>
+        <option value="concorrentes">Concorrentes e serviços</option>
+      </select>
+
+      <label for="source">Onde pesquisar?</label>
+      <select id="source">
+        <option value="web">Pesquisa geral na internet</option>
+        <option value="facebook.com">Páginas públicas do Facebook</option>
+        <option value="youtube.com">YouTube</option>
+        <option value="news.google.com">Notícias</option>
+      </select>
+
+      <button class="primary" onclick="pesquisarRadar()">INICIAR PESQUISA</button>
+
+      <div id="radarResults" class="result"></div>
+      <div id="searchButtons" class="search-list"></div>
+
+      <p class="note">
+        As pesquisas abrem fontes públicas em novas abas. Analise os resultados
+        e confirme se existe demanda real antes de oferecer qualquer serviço.
+        O radar ainda não coleta, armazena ou valida contatos automaticamente.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2>03 — Método VYNTRO</h2>
+      <div class="grid">
+        <div>
+          <strong style="color:var(--green)">01. Encontrar</strong>
+          <p class="description">Identificar necessidades e sinais de procura.</p>
+        </div>
+        <div>
+          <strong style="color:var(--green)">02. Investigar</strong>
+          <p class="description">Entender concorrentes, preços e reclamações.</p>
+        </div>
+        <div>
+          <strong style="color:var(--green)">03. Conectar</strong>
+          <p class="description">Aproximar quem precisa de quem pode resolver.</p>
+        </div>
+        <div>
+          <strong style="color:var(--green)">04. Desenvolver</strong>
+          <p class="description">Testar a oferta e melhorar o modelo de negócio.</p>
+        </div>
       </div>
-
-      <button onclick="analisar()">COMEÇAR ANÁLISE →</button>
-      <div class="note">Esta primeira versão é uma interface demonstrativa. A conexão com a IA será adicionada na próxima etapa.</div>
-      <div class="result" id="result"></div>
-      <div class="radar">
-  <h2>VYNTRO — RADAR DE COMPRADORES</h2>
-  <p>Encontre pessoas procurando veículos usados.</p>
-
-  <input id="carro" type="text" placeholder="Ex.: Honda Civic 2015">
-  <input id="preco" type="number" placeholder="Preço máximo em R$">
-  <input id="cidade" type="text" placeholder="Cidade ou região">
-
-  <button type="button" onclick="pesquisarCompradores()">
-    BUSCAR COMPRADORES
-  </button>
-</div>
     </section>
   </main>
 
-  <footer>VYNTRO AI © 2026 — Conexões que criam crescimento.</footer>
+  <footer>
+    VYNTRO AI © 2026 — Da ideia ao negócio.
+  </footer>
 
-  
+  <script>
+    function analisar() {
+      const idea = document.getElementById("idea").value.trim();
+      const location = document.getElementById("location").value.trim();
+      const result = document.getElementById("analysisResult");
 
-<script>
-function analisar() {
-  const idea = document.getElementById("idea").value.trim();
-  const result = document.getElementById("result");
+      if (!idea) {
+        alert("Descreva primeiro o que deseja investigar.");
+        return;
+      }
 
-  if (!idea) {
-    alert("Escreva sua ideia primeiro.");
-    return;
-  }
+      const words = idea.toLowerCase();
+      let category = "Oportunidade a investigar";
+      let nextStep = "Pesquise quem já oferece essa solução e quais problemas os consumidores relatam.";
 
-  const texto = idea.toLowerCase();
+      if (words.includes("reparo") || words.includes("conserto") || words.includes("manutenção")) {
+        category = "Serviços e manutenção";
+        nextStep = "Investigue a procura local, os preços e as reclamações sobre profissionais.";
+      } else if (words.includes("curso") || words.includes("aprender") || words.includes("aula")) {
+        category = "Educação e conhecimento";
+        nextStep = "Investigue quais habilidades as pessoas querem aprender e quanto pagam por isso.";
+      } else if (words.includes("comida") || words.includes("alimento") || words.includes("restaurante")) {
+        category = "Alimentação";
+        nextStep = "Investigue procura, frequência de compra, entrega e concorrentes da região.";
+      } else if (words.includes("beleza") || words.includes("cabelo") || words.includes("estética")) {
+        category = "Beleza e cuidados pessoais";
+        nextStep = "Investigue serviços procurados, preços e avaliações de clientes.";
+      }
 
-  
-const segmentos = [
-  {
-    nome: "Mercado e oportunidade",
-    termos: ["plataforma", "aplicativo", "site", "negócio", "empresa", "mercado"],
-    analise: "Investigue concorrentes, demanda, público e oportunidades de diferenciação."
-  },
-  {
-    nome: "Conteúdo e audiência",
-    termos: ["vídeo", "tiktok", "instagram", "youtube", "viral", "conteúdo"],
-    analise: "Identifique públicos, temas de interesse, formatos e formas de medir resultados."
-  },
-  {
-    nome: "Vendas e monetização",
-    termos: ["vender", "vendas", "preço", "oferta", "dinheiro", "pagamento"],
-    analise: "Avalie quem paga, pelo que paga e quais modelos de receita podem ser testados."
-  },
-  {
-    nome: "Leads e aquisição",
-    termos: ["leads", "contatos", "whatsapp", "clientes", "anúncio"],
-    analise: "Planeje a atração de interessados, a organização dos contatos e o acompanhamento das oportunidades."
-  },
-  {
-    nome: "Comportamento humano",
-    termos: ["comportamento", "psicologia", "desejo", "emoção", "público"],
-    analise: "Investigue necessidades, dificuldades e motivações do público."
-  },
-  {
-    nome: "Web Intelligence",
-    termos: ["pesquisar", "pesquisa", "internet", "concorrentes", "concorrência", "tendências", "dados", "fontes"],
-    analise: "Identifique informações que precisam ser pesquisadas na internet, fontes confiáveis, concorrentes e evidências de mercado. Esta etapa ainda não realiza buscas externas."
-  }
-];
+      result.innerHTML = `
+        <strong>Triagem inicial concluída</strong><br><br>
+        <strong>Área identificada:</strong> ${escapeHTML(category)}<br>
+        <strong>Local:</strong> ${escapeHTML(location || "Não informado")}<br><br>
+        <strong>Próximo passo recomendado:</strong><br>
+        ${escapeHTML(nextStep)}<br><br>
+        <em>Esta é uma classificação inicial baseada nas palavras informadas,
+        não uma validação de mercado.</em>
+      `;
+      result.style.display = "block";
 
-  const encontrados = segmentos.filter(segmento =>
-    segmento.termos.some(termo => texto.includes(termo))
-  );
+      document.getElementById("radarTopic").value = idea;
+      if (location) document.getElementById("radarLocation").value = location;
+    }
 
-  const listaAnalises = encontrados.length
-    ? encontrados
-    : [segmentos[0]];
+    function pesquisarRadar() {
+      const topic = document.getElementById("radarTopic").value.trim();
+      const location = document.getElementById("radarLocation").value.trim();
+      const type = document.getElementById("researchType").value;
+      const source = document.getElementById("source").value;
 
-  const escapeHTML = valor =>
-    valor.replace(/[&<>"']/g, caractere => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;",
-      "'": "&#039;"
-    })[caractere]);
+      if (!topic) {
+        alert("Informe o produto ou serviço que deseja pesquisar.");
+        return;
+      }
 
-  const analisesHTML = listaAnalises.map((item, indice) => `
-    <p><strong>${indice + 1}. ${item.nome}</strong><br>
-    ${item.analise}</p>
-  `).join("");
+      const terms = {
+        demanda: [
+          `"${topic}" procurando`,
+          `"${topic}" preciso de`,
+          `"${topic}" contratar`
+        ],
+        oferta: [
+          `"${topic}" profissionais`,
+          `"${topic}" empresas`,
+          `"${topic}" serviços`
+        ],
+        reclamacoes: [
+          `"${topic}" reclamação`,
+          `"${topic}" problemas`,
+          `"${topic}" não recomendo`
+        ],
+        precos: [
+          `"${topic}" preço`,
+          `"${topic}" orçamento`,
+          `"${topic}" quanto custa`
+        ],
+        concorrentes: [
+          `"${topic}" empresas`,
+          `"${topic}" concorrentes`,
+          `"${topic}" melhores serviços`
+        ]
+      };
 
-  result.style.display = "block";
+      const queries = terms[type].map(term =>
+        `${term} ${location}`.trim()
+      );
 
-  
-result.innerHTML = `
-  <strong style="color:#c8f169">VYNTRO AI — ANÁLISE ESTRATÉGICA</strong>
-  <br><br>
+      const result = document.getElementById("radarResults");
+      const buttons = document.getElementById("searchButtons");
 
-  <strong>1. ENTENDIMENTO</strong>
-  <p>${escapeHTML(idea).replace(/\n/g, "<br>")}</p>
+      result.innerHTML = `
+        <strong>Pesquisa preparada</strong><br>
+        Tema: ${escapeHTML(topic)}<br>
+        Região: ${escapeHTML(location || "Não informada")}<br>
+        Tipo: ${escapeHTML(type)}<br><br>
+        Selecione uma pesquisa abaixo para abrir os resultados.
+      `;
+      result.style.display = "block";
+      buttons.innerHTML = "";
 
-  <strong>2. ÁREAS IDENTIFICADAS</strong>
-  <p>${listaAnalises.map(item => item.nome).join(" • ")}</p>
+      queries.forEach((query, index) => {
+        const button = document.createElement("button");
+        button.className = "secondary";
+        button.textContent = `ABRIR PESQUISA ${index + 1}`;
+        button.onclick = () => {
+          const url = source === "web"
+            ? "https://www.google.com/search?q=" + encodeURIComponent(query)
+            : "https://www.google.com/search?q=" +
+              encodeURIComponent(query + " site:" + source);
+          window.open(url, "_blank", "noopener,noreferrer");
+        };
+        buttons.appendChild(button);
+      });
+    }
 
-  <strong>3. INVESTIGAÇÃO ESTRATÉGICA</strong>
-  ${analisesHTML}
-
-  <strong>4. MODELO DE MONETIZAÇÃO</strong>
-  <ul>
-    <li>Venda direta de produtos ou serviços.</li>
-    <li>Assinatura ou plano recorrente.</li>
-    <li>Comissão por negócio realizado.</li>
-    <li>Serviços adicionais ou anúncios destacados.</li>
-  </ul>
-
-  <strong>5. PLANO DE EXECUÇÃO</strong>
-  <ol>
-    <li>Escolher um público específico.</li>
-    <li>Validar se existe um problema real.</li>
-    <li>Testar uma solução simples.</li>
-    <li>Medir resultados e ajustar a oferta.</li>
-  </ol>
-
-  <strong style="color:#c8f169">6. WEB INTELLIGENCE</strong>
-  <p>Pesquise informações externas sobre sua ideia:</p>
-
-  <button type="button" onclick="pesquisarVyntro('concorrentes')">
-    PESQUISAR CONCORRENTES
-  </button>
-
-  <button type="button" onclick="pesquisarVyntro('modelos de monetização')">
-    PESQUISAR MODELOS DE NEGÓCIO
-  </button>
-
-  <button type="button" onclick="pesquisarVyntro('tendências e oportunidades')">
-    PESQUISAR TENDÊNCIAS
-  </button>
-
-  <strong style="color:#c8f169">PRÓXIMA AÇÃO</strong>
-  <p>Compare os concorrentes e identifique uma necessidade ainda não atendida.</p>
-
-  <span style="color:#aab4c5">
-    A pesquisa será aberta no Google. A VYNTRO ainda não lê nem resume automaticamente os resultados.
-  </span>
-`;
-
-
-}
-
-function pesquisarVyntro(tipo) {
-  const ideia = document.getElementById("idea").value.trim();
-
-  if (!ideia) {
-    alert("Escreva sua ideia primeiro.");
-    return;
-  }
-
-  const pesquisa = ideia + " " + tipo;
-  const url = "https://www.google.com/search?q=" +
-    encodeURIComponent(pesquisa);
-
-  window.open(url, "_blank", "noopener,noreferrer");
-}
-  
-
-function pesquisarCompradores() {
-  const carro = document.getElementById("carro").value.trim();
-  const preco = document.getElementById("preco").value.trim();
-  const cidade = document.getElementById("cidade").value.trim();
-
-  if (!carro || !cidade) {
-    alert("Informe o veículo e a cidade.");
-    return;
-  }
-
-  const regiao = cidade + " São Paulo";
-  const limite = preco ? " até R$ " + preco : "";
-
-  const pesquisas = [
-    '"' + carro + '" "procuro" "comprar" ' + regiao + limite,
-    '"' + carro + '" "quero comprar" ' + regiao + limite,
-    '"' + carro + '" "estou procurando" ' + regiao,
-    'site:facebook.com "' + carro + '" "procuro" ' + regiao
-  ];
-
-  pesquisas.forEach((termo) => {
-    const busca = termo + ' -vendo -"à venda" -anúncio';
-    const url = "https://www.google.com/search?q=" +
-      encodeURIComponent(busca);
-
-    window.open(url, "_blank", "noopener,noreferrer");
-  });
-}
-</script>
-
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      })[char]);
+    }
+  </script>
 </body>
-  
 </html>
