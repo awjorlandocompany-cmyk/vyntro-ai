@@ -289,19 +289,19 @@ function pesquisarCompradores() {
   }
 
   const regiao = cidade + " São Paulo";
-
   const limite = preco ? " até R$ " + preco : "";
 
   const pesquisas = [
-    '"' + carro + '" "procuro comprar" ' + regiao + limite,
+    '"' + carro + '" "procuro" "comprar" ' + regiao + limite,
     '"' + carro + '" "quero comprar" ' + regiao + limite,
-    '"' + carro + '" "compro" ' + regiao + limite,
+    '"' + carro + '" "estou procurando" ' + regiao,
     'site:facebook.com "' + carro + '" "procuro" ' + regiao
   ];
 
   pesquisas.forEach((termo) => {
+    const busca = termo + ' -vendo -"à venda" -anúncio';
     const url = "https://www.google.com/search?q=" +
-      encodeURIComponent(termo);
+      encodeURIComponent(busca);
 
     window.open(url, "_blank", "noopener,noreferrer");
   });
