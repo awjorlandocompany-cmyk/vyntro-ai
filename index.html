@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>VYNTRO AI — Intelligence that creates growth</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #101827;
+      color: #f5f5f0;
+      font-family: Inter, Arial, sans-serif;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 7%;
+      border-bottom: 1px solid #263448;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .symbol {
+      background: #c8f169; color: #101827;
+      font-weight: 900; font-size: 25px;
+      width: 42px; height: 42px;
+      display: grid; place-items: center;
+      border-radius: 12px;
+    }
+    .brand-name { font-size: 21px; font-weight: 800; letter-spacing: 2px; }
+    .brand-sub { color: #c8f169; font-size: 9px; letter-spacing: 2px; }
+    .status { color: #c8f169; font-size: 12px; }
+    main { max-width: 1050px; margin: auto; padding: 75px 22px; }
+    .hero { text-align: center; margin-bottom: 45px; }
+    .eyebrow { color: #c8f169; letter-spacing: 3px; font-size: 11px; }
+    h1 { font-size: clamp(36px, 7vw, 64px); margin: 18px 0; }
+    h1 span { color: #c8f169; }
+    .hero p { color: #aab4c5; line-height: 1.7; }
+    .workspace {
+      background: #182538; border: 1px solid #34445a;
+      padding: 25px; border-radius: 20px;
+    }
+    label { display: block; margin-bottom: 12px; font-weight: 700; }
+    textarea {
+      width: 100%; min-height: 145px; resize: vertical;
+      background: #101827; border: 1px solid #45566e;
+      border-radius: 12px; color: white; padding: 17px;
+      font: inherit; outline: none;
+    }
+    textarea:focus { border-color: #c8f169; }
+    .modules {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 12px; margin: 20px 0;
+    }
+    .module {
+      background: #223248; padding: 17px;
+      border: 1px solid #34445a; border-radius: 12px;
+      color: #e9edf3; font-size: 14px;
+    }
+    .module strong { display: block; color: #c8f169; margin-bottom: 7px; }
+    button {
+      width: 100%; padding: 17px; border: 0;
+      background: #c8f169; color: #101827;
+      font-weight: 800; font-size: 15px;
+      border-radius: 12px; cursor: pointer;
+    }
+    button:hover { background: #d8ff83; }
+    .note { color: #8997aa; font-size: 12px; text-align: center; margin-top: 14px; }
+    .result {
+      display: none; margin-top: 22px; padding: 20px;
+      background: #101827; border-radius: 12px;
+      border: 1px solid #c8f169; line-height: 1.7;
+    }
+    footer { text-align: center; color: #718096; padding: 30px; font-size: 12px; }
+    @media(max-width:650px) {
+      .modules { grid-template-columns: 1fr; }
+      header { padding: 17px 5%; }
+      main { padding-top: 50px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="symbol">V</div>
+      <div>
+        <div class="brand-name">VYNTRO AI</div>
+        <div class="brand-sub">INTELLIGENCE THAT CREATES GROWTH</div>
+      </div>
+    </div>
+    <div class="status">● PLATAFORMA EM CONSTRUÇÃO</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">INTELIGÊNCIA • CRIATIVIDADE • CRESCIMENTO</div>
+      <h1>Da ideia ao <span>negócio.</span></h1>
+      <p>Transforme conhecimento em estratégia.<br>
+      Descubra oportunidades, compreenda mercados e construa novas possibilidades.</p>
+    </section>
+
+    <section class="workspace">
+      <label for="idea">O que você deseja descobrir, criar ou transformar?</label>
+      <textarea id="idea" placeholder="Descreva sua ideia, negócio, produto ou objetivo..."></textarea>
+
+      <div class="modules">
+        <div class="module"><strong>01 / MERCADO</strong>Oportunidades e tendências</div>
+        <div class="module"><strong>02 / PSICOLOGIA</strong>Comportamento e consumo</div>
+        <div class="module"><strong>03 / CONTEÚDO</strong>Vídeos, ideias e roteiros</div>
+        <div class="module"><strong>04 / LEADS</strong>Atração e conversão</div>
+        <div class="module"><strong>05 / VENDAS</strong>Ofertas e estratégias</div>
+        <div class="module"><strong>06 / CRESCIMENTO</strong>Análise e otimização</div>
+      </div>
+
+      <button onclick="analisar()">COMEÇAR ANÁLISE →</button>
+      <div class="note">Esta primeira versão é uma interface demonstrativa. A conexão com a IA será adicionada na próxima etapa.</div>
+      <div class="result" id="result"></div>
+    </section>
+  </main>
+
+  <footer>VYNTRO AI © 2026 — Conexões que criam crescimento.</footer>
+
+  <script>
+    function analisar() {
+      const idea = document.getElementById("idea").value.trim();
+      const result = document.getElementById("result");
+      if (!idea) {
+        alert("Escreva sua ideia primeiro.");
+        return;
+      }
+      result.style.display = "block";
+      result.innerHTML = "<strong style='color:#c8f169'>IDEIA RECEBIDA!</strong><br><br>" +
+        "Sua proposta foi registrada nesta demonstração:<br><br>" +
+        idea.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>") +
+        "<br><br><span style='color:#aab4c5'>Na próxima etapa vamos conectar o motor de inteligência artificial para analisar sua ideia de verdade.</span>";
+    }
+  </script>
+</body>
+</html>
