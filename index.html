@@ -122,20 +122,66 @@
 
   <footer>VYNTRO AI © 2026 — Conexões que criam crescimento.</footer>
 
-  <script>
-    function analisar() {
-      const idea = document.getElementById("idea").value.trim();
-      const result = document.getElementById("result");
-      if (!idea) {
-        alert("Escreva sua ideia primeiro.");
-        return;
-      }
-      result.style.display = "block";
-      result.innerHTML = "<strong style='color:#c8f169'>IDEIA RECEBIDA!</strong><br><br>" +
-        "Sua proposta foi registrada nesta demonstração:<br><br>" +
-        idea.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>") +
-        "<br><br><span style='color:#aab4c5'>Na próxima etapa vamos conectar o motor de inteligência artificial para analisar sua ideia de verdade.</span>";
+  
+<script>
+  function analisar() {
+    const idea = document.getElementById("idea").value.trim();
+    const result = document.getElementById("result");
+
+    if (!idea) {
+      alert("Escreva sua ideia primeiro.");
+      return;
     }
-  </script>
-</body>
+
+    const texto = idea.toLowerCase();
+
+    const areas = [
+      { nome: "Mercado", termos: ["mercado", "cliente", "produto", "serviço", "negócio"] },
+      { nome: "Conteúdo", termos: ["vídeo", "tiktok", "instagram", "youtube", "viral", "conteúdo"] },
+      { nome: "Vendas", termos: ["vender", "vendas", "preço", "oferta", "dinheiro"] },
+      { nome: "Leads", termos: ["leads", "contatos", "whatsapp", "clientes", "anúncio"] },
+      { nome: "Psicologia", termos: ["comportamento", "psicologia", "desejo", "emoção", "público"] }
+    ];
+
+    const identificadas = areas
+      .filter(area => area.termos.some(termo => texto.includes(termo)))
+      .map(area => area.nome);
+
+    const escapeHTML = (valor) =>
+      valor.replace(/[&<>"']/g, caractere => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      })[caractere]);
+
+    result.style.display = "block";
+    result.innerHTML = `
+      <strong style="color:#c8f169">ANÁLISE INICIAL VYNTRO</strong>
+      <br><br>
+      <strong>1. Sua ideia</strong>
+      <p>${escapeHTML(idea).replace(/\n/g, "<br>")}</p>
+      <strong>2. Áreas relacionadas</strong>
+      <p>${identificadas.length ? identificadas.join(" • ") : "Mercado e desenvolvimento de negócios"}</p>
+      <strong>3. O que precisa ser investigado</strong>
+      <ul>
+        <li>Qual problema concreto essa ideia resolve?</li>
+        <li>Quem sente esse problema e precisa de uma solução?</li>
+        <li>Como testar se as pessoas pagariam por isso?</li>
+      </ul>
+      <strong>4. Primeiro plano de ação</strong>
+      <ol>
+        <li>Definir o público que será atendido.</li>
+        <li>Identificar soluções que já existem.</li>
+        <li>Conversar com potenciais clientes.</li>
+        <li>Fazer um teste pequeno antes de investir.</li>
+      </ol>
+      <span style="color:#aab4c5">
+        Análise preliminar baseada em regras locais. Ainda não utiliza um modelo de IA.
+      </span>
+    `;
+  }
+</script>
+
 </html>
