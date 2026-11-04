@@ -288,13 +288,15 @@ function pesquisarCompradores() {
     return;
   }
 
-  const regiao = cidade + " São Paulo Grande ABC";
+  const regiao = cidade + " São Paulo";
+
   const limite = preco ? " até R$ " + preco : "";
 
   const pesquisas = [
-    carro + " quero comprar procuro comprador " + regiao,
-    carro + " à venda " + regiao + limite,
-    carro + " preço FIPE valor mercado " + regiao
+    '"' + carro + '" "procuro comprar" ' + regiao + limite,
+    '"' + carro + '" "quero comprar" ' + regiao + limite,
+    '"' + carro + '" "compro" ' + regiao + limite,
+    'site:facebook.com "' + carro + '" "procuro" ' + regiao
   ];
 
   pesquisas.forEach((termo) => {
