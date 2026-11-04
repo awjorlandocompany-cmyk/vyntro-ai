@@ -117,6 +117,18 @@
       <button onclick="analisar()">COMEÇAR ANÁLISE →</button>
       <div class="note">Esta primeira versão é uma interface demonstrativa. A conexão com a IA será adicionada na próxima etapa.</div>
       <div class="result" id="result"></div>
+      <div class="radar">
+  <h2>VYNTRO — RADAR DE COMPRADORES</h2>
+  <p>Encontre pessoas procurando veículos usados.</p>
+
+  <input id="carro" type="text" placeholder="Ex.: Honda Civic 2015">
+  <input id="preco" type="number" placeholder="Preço máximo em R$">
+  <input id="cidade" type="text" placeholder="Cidade ou região">
+
+  <button type="button" onclick="pesquisarCompradores()">
+    BUSCAR COMPRADORES
+  </button>
+</div>
     </section>
   </main>
 
@@ -264,6 +276,31 @@ function pesquisarVyntro(tipo) {
 
   window.open(url, "_blank", "noopener,noreferrer");
 }
+  
+
+function pesquisarCompradores() {
+  const carro = document.getElementById("carro").value.trim();
+  const preco = document.getElementById("preco").value.trim();
+  const cidade = document.getElementById("cidade").value.trim();
+
+  if (!carro || !cidade) {
+    alert("Informe o veículo e a cidade.");
+    return;
+  }
+
+  let pesquisa = carro + " à venda comprador interessado " + cidade;
+
+  if (preco) {
+    pesquisa += " até R$ " + preco;
+  }
+
+  const url = "https://www.google.com/search?q=" +
+    encodeURIComponent(pesquisa);
+
+  window.open(url, "_blank", "noopener,noreferrer");
+}
 </script>
+
 </body>
+  
 </html>
