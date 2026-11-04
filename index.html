@@ -194,44 +194,76 @@ const segmentos = [
 
   result.style.display = "block";
 
-  result.innerHTML = `
-    <strong style="color:#c8f169">VYNTRO AI — ANÁLISE ESTRATÉGICA</strong>
-    <br><br>
+  
+result.innerHTML = `
+  <strong style="color:#c8f169">VYNTRO AI — ANÁLISE ESTRATÉGICA</strong>
+  <br><br>
 
-    <strong>1. ENTENDIMENTO</strong>
-    <p>${escapeHTML(idea).replace(/\n/g, "<br>")}</p>
+  <strong>1. ENTENDIMENTO</strong>
+  <p>${escapeHTML(idea).replace(/\n/g, "<br>")}</p>
 
-    <strong>2. ÁREAS IDENTIFICADAS</strong>
-    <p>${listaAnalises.map(item => item.nome).join(" • ")}</p>
+  <strong>2. ÁREAS IDENTIFICADAS</strong>
+  <p>${listaAnalises.map(item => item.nome).join(" • ")}</p>
 
-    <strong>3. INVESTIGAÇÃO ESTRATÉGICA</strong>
-    ${analisesHTML}
+  <strong>3. INVESTIGAÇÃO ESTRATÉGICA</strong>
+  ${analisesHTML}
 
-    <strong>4. MODELO DE MONETIZAÇÃO</strong>
-    <ul>
-      <li>Venda direta de produtos ou serviços.</li>
-      <li>Assinatura ou plano recorrente.</li>
-      <li>Comissão por negócio realizado.</li>
-      <li>Serviços adicionais ou anúncios destacados.</li>
-    </ul>
+  <strong>4. MODELO DE MONETIZAÇÃO</strong>
+  <ul>
+    <li>Venda direta de produtos ou serviços.</li>
+    <li>Assinatura ou plano recorrente.</li>
+    <li>Comissão por negócio realizado.</li>
+    <li>Serviços adicionais ou anúncios destacados.</li>
+  </ul>
 
-    <strong>5. PLANO DE EXECUÇÃO</strong>
-    <ol>
-      <li>Escolher um público específico.</li>
-      <li>Validar se existe um problema real.</li>
-      <li>Testar uma solução simples.</li>
-      <li>Medir resultados e ajustar a oferta.</li>
-    </ol>
+  <strong>5. PLANO DE EXECUÇÃO</strong>
+  <ol>
+    <li>Escolher um público específico.</li>
+    <li>Validar se existe um problema real.</li>
+    <li>Testar uma solução simples.</li>
+    <li>Medir resultados e ajustar a oferta.</li>
+  </ol>
 
-    <strong style="color:#c8f169">PRÓXIMA AÇÃO</strong>
-    <p>Converse com cinco potenciais clientes e descubra como resolvem esse problema atualmente.</p>
+  <strong style="color:#c8f169">6. WEB INTELLIGENCE</strong>
+  <p>Pesquise informações externas sobre sua ideia:</p>
 
-    <span style="color:#aab4c5">
-      Motor estratégico experimental baseado em regras. Não utiliza IA generativa nem pesquisa dados externos.
-    </span>
-  `;
+  <button type="button" onclick="pesquisarVyntro('concorrentes')">
+    PESQUISAR CONCORRENTES
+  </button>
+
+  <button type="button" onclick="pesquisarVyntro('modelos de monetização')">
+    PESQUISAR MODELOS DE NEGÓCIO
+  </button>
+
+  <button type="button" onclick="pesquisarVyntro('tendências e oportunidades')">
+    PESQUISAR TENDÊNCIAS
+  </button>
+
+  <strong style="color:#c8f169">PRÓXIMA AÇÃO</strong>
+  <p>Compare os concorrentes e identifique uma necessidade ainda não atendida.</p>
+
+  <span style="color:#aab4c5">
+    A pesquisa será aberta no Google. A VYNTRO ainda não lê nem resume automaticamente os resultados.
+  </span>
+`;
+
+
+}
+
+function pesquisarVyntro(tipo) {
+  const ideia = document.getElementById("idea").value.trim();
+
+  if (!ideia) {
+    alert("Escreva sua ideia primeiro.");
+    return;
+  }
+
+  const pesquisa = ideia + " " + tipo;
+  const url = "https://www.google.com/search?q=" +
+    encodeURIComponent(pesquisa);
+
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 </script>
-
-
+</body>
 </html>
