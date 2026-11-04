@@ -123,65 +123,109 @@
   <footer>VYNTRO AI © 2026 — Conexões que criam crescimento.</footer>
 
   
+
 <script>
-  function analisar() {
-    const idea = document.getElementById("idea").value.trim();
-    const result = document.getElementById("result");
+function analisar() {
+  const idea = document.getElementById("idea").value.trim();
+  const result = document.getElementById("result");
 
-    if (!idea) {
-      alert("Escreva sua ideia primeiro.");
-      return;
-    }
-
-    const texto = idea.toLowerCase();
-
-    const areas = [
-      { nome: "Mercado", termos: ["mercado", "cliente", "produto", "serviço", "negócio"] },
-      { nome: "Conteúdo", termos: ["vídeo", "tiktok", "instagram", "youtube", "viral", "conteúdo"] },
-      { nome: "Vendas", termos: ["vender", "vendas", "preço", "oferta", "dinheiro"] },
-      { nome: "Leads", termos: ["leads", "contatos", "whatsapp", "clientes", "anúncio"] },
-      { nome: "Psicologia", termos: ["comportamento", "psicologia", "desejo", "emoção", "público"] }
-    ];
-
-    const identificadas = areas
-      .filter(area => area.termos.some(termo => texto.includes(termo)))
-      .map(area => area.nome);
-
-    const escapeHTML = (valor) =>
-      valor.replace(/[&<>"']/g, caractere => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-      })[caractere]);
-
-    result.style.display = "block";
-    result.innerHTML = `
-      <strong style="color:#c8f169">ANÁLISE INICIAL VYNTRO</strong>
-      <br><br>
-      <strong>1. Sua ideia</strong>
-      <p>${escapeHTML(idea).replace(/\n/g, "<br>")}</p>
-      <strong>2. Áreas relacionadas</strong>
-      <p>${identificadas.length ? identificadas.join(" • ") : "Mercado e desenvolvimento de negócios"}</p>
-      <strong>3. O que precisa ser investigado</strong>
-      <ul>
-        <li>Qual problema concreto essa ideia resolve?</li>
-        <li>Quem sente esse problema e precisa de uma solução?</li>
-        <li>Como testar se as pessoas pagariam por isso?</li>
-      </ul>
-      <strong>4. Primeiro plano de ação</strong>
-      <ol>
-        <li>Definir o público que será atendido.</li>
-        <li>Identificar soluções que já existem.</li>
-        <li>Conversar com potenciais clientes.</li>
-        <li>Fazer um teste pequeno antes de investir.</li>
-      </ol>
-      <span style="color:#aab4c5">
-        Análise preliminar baseada em regras locais. Ainda não utiliza um modelo de IA.
-      </span>
-    `;
+  if (!idea) {
+    alert("Escreva sua ideia primeiro.");
+    return;
   }
+
+  const texto = idea.toLowerCase();
+
+  const segmentos = [
+    {
+      nome: "Mercado e oportunidade",
+      termos: ["plataforma", "aplicativo", "site", "negócio", "empresa", "mercado"],
+      analise: "Investigue quem já oferece essa solução, qual público está desatendido e onde existe espaço para diferenciação."
+    },
+    {
+      nome: "Conteúdo e audiência",
+      termos: ["vídeo", "tiktok", "instagram", "youtube", "viral", "conteúdo"],
+      analise: "Identifique um público específico, crie conteúdos que resolvam dúvidas reais e acompanhe alcance, retenção e conversões."
+    },
+    {
+      nome: "Vendas e monetização",
+      termos: ["vender", "vendas", "preço", "oferta", "dinheiro", "pagamento"],
+      analise: "Defina quem paga, pelo que paga, quanto pode pagar e como testar a disposição de compra."
+    },
+    {
+      nome: "Leads e aquisição",
+      termos: ["leads", "contatos", "whatsapp", "clientes", "anúncio"],
+      analise: "Desenhe um caminho para atrair pessoas interessadas, registrar contatos com consentimento e acompanhar cada oportunidade."
+    },
+    {
+      nome: "Comportamento humano",
+      termos: ["comportamento", "psicologia", "desejo", "emoção", "público"],
+      analise: "Descubra quais necessidades, dificuldades e motivações levam o público a procurar essa solução."
+    }
+  ];
+
+  const encontrados = segmentos.filter(segmento =>
+    segmento.termos.some(termo => texto.includes(termo))
+  );
+
+  const listaAnalises = encontrados.length
+    ? encontrados
+    : [segmentos[0]];
+
+  const escapeHTML = valor =>
+    valor.replace(/[&<>"']/g, caractere => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    })[caractere]);
+
+  const analisesHTML = listaAnalises.map((item, indice) => `
+    <p><strong>${indice + 1}. ${item.nome}</strong><br>
+    ${item.analise}</p>
+  `).join("");
+
+  result.style.display = "block";
+
+  result.innerHTML = `
+    <strong style="color:#c8f169">VYNTRO AI — ANÁLISE ESTRATÉGICA</strong>
+    <br><br>
+
+    <strong>1. ENTENDIMENTO</strong>
+    <p>${escapeHTML(idea).replace(/\n/g, "<br>")}</p>
+
+    <strong>2. ÁREAS IDENTIFICADAS</strong>
+    <p>${listaAnalises.map(item => item.nome).join(" • ")}</p>
+
+    <strong>3. INVESTIGAÇÃO ESTRATÉGICA</strong>
+    ${analisesHTML}
+
+    <strong>4. MODELO DE MONETIZAÇÃO</strong>
+    <ul>
+      <li>Venda direta de produtos ou serviços.</li>
+      <li>Assinatura ou plano recorrente.</li>
+      <li>Comissão por negócio realizado.</li>
+      <li>Serviços adicionais ou anúncios destacados.</li>
+    </ul>
+
+    <strong>5. PLANO DE EXECUÇÃO</strong>
+    <ol>
+      <li>Escolher um público específico.</li>
+      <li>Validar se existe um problema real.</li>
+      <li>Testar uma solução simples.</li>
+      <li>Medir resultados e ajustar a oferta.</li>
+    </ol>
+
+    <strong style="color:#c8f169">PRÓXIMA AÇÃO</strong>
+    <p>Converse com cinco potenciais clientes e descubra como resolvem esse problema atualmente.</p>
+
+    <span style="color:#aab4c5">
+      Motor estratégico experimental baseado em regras. Não utiliza IA generativa nem pesquisa dados externos.
+    </span>
+  `;
+}
 </script>
+
 
 </html>
